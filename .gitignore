@@ -1,0 +1,13 @@
+.venv/
+venv/
+.idea/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+bge-small-zh-v1.5/
+chroma_db/
+all_texts.pkl
+data/
+*.pdf
+*.docx
