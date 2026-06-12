@@ -1,5 +1,6 @@
 import os
-os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+# 移除镜像设置
+# os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
 
 from dotenv import load_dotenv
 from langchain_community.vectorstores import Chroma
@@ -15,7 +16,10 @@ _llm = None
 def get_embeddings():
     global _embeddings
     if _embeddings is None:
-        _embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-small-zh-v1.5")
+        _embeddings = HuggingFaceEmbeddings(
+            model_name="./bge-small-zh-v1.5",
+            model_kwargs={'local_files_only': True}
+        )
     return _embeddings
 
 def get_vectorstore():
